@@ -21,7 +21,7 @@ Comments read like a human developer's notes to themselves: few, dry, and only w
 
 Good:
 ```python
-# zarr 3 opens these v2 stores as empty groups, so pin <3
+# zarr<3 cannot read the re-ingested v3 stores, so pin >=3
 # abs() because MAST's ip sign depends on field direction
 ```
 Bad:
@@ -36,7 +36,7 @@ No comments on imports. No banner comments. No emoji. Docstrings: one or two pla
 - At the end of each phase: run `pytest`, run the phase's script on a small subset, commit with a clear message (`phase 2: signal-based disruption labels`), and update `CODE_MAP.md`.
 - When a phase says **STOP FOR REVIEW**, finish, summarise what you found in plain language, and wait. Don't continue on your own.
 - If the data surprises you (odd units, sign flips, missing groups, weird time bases), don't silently patch it. Write it in `NOTES.md` with the shot IDs involved.
-- Keep the dependency list small: `numpy`, `pandas`, `pyarrow`, `xarray`, `zarr<3`, `fsspec`, `aiohttp`, `requests`, `scikit-learn`, `matplotlib`, `pytest`, `tqdm`. Ask before adding anything else (LightGBM is allowed in Phase 6 if HistGradientBoosting underperforms).
+- Keep the dependency list small: `numpy`, `pandas`, `pyarrow`, `xarray`, `zarr>=3`, `fsspec`, `aiohttp`, `requests`, `scikit-learn`, `matplotlib`, `pytest`, `tqdm`. Ask before adding anything else (LightGBM is allowed in Phase 6 if HistGradientBoosting underperforms).
 
 ## Environment notes
 - Python 3.10+.
